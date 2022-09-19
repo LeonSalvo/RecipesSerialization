@@ -17,6 +17,7 @@ namespace Recipies
         public Product FinalProduct { get; set; }
 
         [JsonInclude]
+        
         public ArrayList Steps { get; private set; } = new ArrayList();
 
 
@@ -28,6 +29,11 @@ namespace Recipies
         public void RemoveStep(Step step)
         {
             this.Steps.Remove(step);
+        }
+
+        public string ConvertToJson()
+        {
+            return JsonSerializer.Serialize(this);
         }
     }
 }
